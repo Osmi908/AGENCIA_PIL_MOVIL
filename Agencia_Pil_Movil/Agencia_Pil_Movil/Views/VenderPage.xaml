@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Agencia_Pil_Movil.Views.VenderPage" BackgroundColor="#003573">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="{Binding NroVenta, StringFormat='VENTA NRO {0}'} " Style="{StaticResource TITULOLISTA}" TextColor="White"/>
+            <StackLayout Orientation="Horizontal" BackgroundColor="White">
+                <Label Text="NOMBRE" Style="{StaticResource NOMBRE_COLUMNA}" TextColor="#003573"/>
+                <Label  Text="CODIGO" Style="{StaticResource NOMBRE_COLUMNA}" TextColor="#003573"/>
+                <Label Text="PRECIO/U" Style="{StaticResource NOMBRE_COLUMNA}" TextColor="#003573"/>
+                <Label Text="CANTIDAD" Style="{StaticResource NOMBRE_COLUMNA}" TextColor="#003573"/>
+                <Label Text="TOTAL" Style="{StaticResource NOMBRE_COLUMNA}" TextColor="#003573"/>
+            </StackLayout>
+            <ScrollView  WidthRequest="300" BackgroundColor="LightBlue" HeightRequest="300">
+                <ListView x:Name="lstProductosVenta">
+                <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding nombre_producto}" FontSize="20" TextColor="Black" FontFamily="Impact" VerticalOptions="Center"></Label>
+                                    <Label Text="{Binding codigo_producto}" FontSize="20" TextColor="Black" FontFamily="Impact" VerticalOptions="Center"/>
+                                    <Label Text="{Binding precio_unitario}" FontSize="20" TextColor="Black" FontFamily="Impact" VerticalOptions="Center"/>
+                                    <Label Text="{Binding cantidad}" FontSize="20" TextColor="Black" FontFamily="Impact" VerticalOptions="Center"/>
+                                    <Label Text="{Binding precio_cantidad}" FontSize="20" TextColor="Black" FontFamily="Impact" VerticalOptions="Center"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </ScrollView>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="CANTIDAD TOTAL" x:Name="txtcant" />
+                <Label Text="" x:Name="txtDatCant"/>
+                <Label Text="PRECIO TOTAL" x:Name="txtprecio"/>
+                <Label Text="" x:Name="txtDatPrecio"/>
+            </StackLayout>
+            <StackLayout >
+                <Label Text="DATOS DEL CLIENTE"></Label>
+                <Entry Placeholder="nit" Text="0" x:Name="txtnit"></Entry>
+                <Entry Placeholder="nombre" Text="S/N" x:Name="txtnombre"></Entry>
+            </StackLayout>
+            <Button Text="VENDER" x:Name="btnVenta" Clicked="btnVenta_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Agencia_Pil_Movil.Views.ActualizarPage" BackgroundColor="#aaaa">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="ACTUALIZAR DATOS"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" Style="{StaticResource TITULOLISTA}" FontSize="25" TextColor="#003573"/>
+            <StackLayout>
+                <Label Text="NUEVOS PRODUCTOS" x:Name="lblNuevosProductos" FontSize="20" Style="{StaticResource NOMBRE_COLUMNA}" TextColor="DarkRed" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center" Margin="20" ></Label>
+                <ListView x:Name="lstProdutosNuevos" ItemsSource="{Binding ProductosNuevos}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding nombre}"></Label>
+                                    <Label Text="{Binding codigo}"></Label>
+                                    
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            
+            <StackLayout>
+                <Label  Text="PRECIOS POR UNIDAD NUEVOS" x:Name="lblPreciosMenorNuevos"  FontSize="20" TextColor="DarkRed" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center" Margin="20"></Label>
+                <ListView x:Name="lstPreciosMenor" ItemsSource="{Binding Precios}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding id_producto}"></Label>
+                                    <Label Text="{Binding precio ,StringFormat='{0:f} bs'}"></Label>
+                                    <Label Text="{Binding fechaini}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout>
+                <Label  Text="PRECIOS POR MAYOR NUEVOS" x:Name="lblPreciosMayorNuevos"   FontSize="20" TextColor="DarkRed" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center" Margin="20"></Label>
+                <ListView x:Name="lstPreciosMayor" ItemsSource="{Binding PreciosMayor}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding id_producto}"></Label>
+                                    <Label Text="{Binding precio ,StringFormat='{0:f} bs'}"></Label>
+                                    <Label Text="{Binding fechaini}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout x:Name="lstProductosSinStock">
+                <Label Text="PRODUCTOS SIN STOCK" x:Name="lblProductosSinStock"  FontSize="20" TextColor="DarkRed" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center" Margin="20"/>
+                <ListView>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding nombre}"></Label>
+                                    <Label Text="{Binding codigo}"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Button Text="ACTUALIZAR" x:Name="btnActualizar" Clicked="btnActualizar_Clicked" ></Button>
+        </StackLayout>
+        
+
+    </ContentPage.Content>
+</ContentPage>

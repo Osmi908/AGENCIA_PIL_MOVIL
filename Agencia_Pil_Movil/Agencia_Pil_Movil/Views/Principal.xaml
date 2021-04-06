@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Agencia_Pil_Movil.Views.Principal"
+             xmlns:pages="clr-namespace:Agencia_Pil_Movil.Views" xmlns:agencia_pil_movil="clr-namespace:Agencia_Pil_Movil">
+  <MasterDetailPage.Master>
+    <pages:PrincipalMaster x:Name="MasterPage" />
+  </MasterDetailPage.Master>
+  <MasterDetailPage.Detail>
+        <NavigationPage BarBackgroundColor="#003573">
+      <x:Arguments>
+        <agencia_pil_movil:MainPage />
+      </x:Arguments>
+    </NavigationPage>
+  </MasterDetailPage.Detail>
+</MasterDetailPage>

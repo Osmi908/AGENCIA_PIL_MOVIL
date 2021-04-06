@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Agencia_Pil_Movil.Views.PrincipalMaster"
+             Title="Master">
+    <StackLayout Spacing="0" >
+        <StackLayout BackgroundColor="#003573">
+            <Image Source="PIL.png" HeightRequest="200"></Image>
+        </StackLayout>
+        <StackLayout  Orientation="Horizontal" x:Name="Stksesion" HeightRequest="100" BackgroundColor="#aaaa">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"></TapGestureRecognizer>
+            </StackLayout.GestureRecognizers>
+            <Label Text="Cerrar Sesión"  TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="50,10,10,10"/>
+            <Image Source="cerrar.png" HeightRequest="20" WidthRequest="20" HorizontalOptions="EndAndExpand" Margin="10,10,50,10"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" x:Name="stkActualizar" HeightRequest="100" BackgroundColor="#aaaa">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+            </StackLayout.GestureRecognizers>
+            <Label Text="Actualizar" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="50,10,10,10"></Label>
+            <Image Source="actualizar" HeightRequest="20" WidthRequest="20" HorizontalOptions="EndAndExpand" Margin="10,10,50,10"/>
+        </StackLayout>
+
+        
+        
+    </StackLayout>
+</ContentPage>

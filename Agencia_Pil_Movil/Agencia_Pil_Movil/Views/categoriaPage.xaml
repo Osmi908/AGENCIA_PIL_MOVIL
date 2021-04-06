@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="Agencia_Pil_Movil.Views.categoriaPage" BackgroundColor="LightBlue">
+    <StackLayout>
+        <Frame BackgroundColor="#003573" Padding="24" CornerRadius="0">
+
+            <StackLayout>
+                <Label Text="AGENCIA PIL MOVIL" HorizontalTextAlignment="Center" TextColor="White" FontSize="36" FontAttributes="Bold" x:Name="lblttulo" Style="{StaticResource TITULOLISTA}"/>
+                <Label Text="{Binding NroVenta, StringFormat='VENTA NRO {0}'}" Style="{StaticResource NOMBRE_COLUMNA}" TextColor="White"/>
+
+                <StackLayout Orientation="Horizontal" BackgroundColor="#003573">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
+
+                        </TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+
+                    <Image Source="carrito.png" HeightRequest="50"/>
+                    <Label Text="{Binding productosVenta}" TextColor="White" FontSize="Small" FontAttributes="Bold" VerticalTextAlignment="Center" x:Name="lblcarrito"></Label>
+                </StackLayout>
+
+            </StackLayout>
+
+        </Frame>
+        <Frame CornerRadius="90" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                  Margin="15" Padding="0"
+                   >
+            <Label Text="CATEGORIAS" FontAttributes="Bold" TextColor="Black"  
+                       HorizontalOptions="Fill" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" HeightRequest="80"
+                       VerticalTextAlignment="Center"></Label>
+
+        </Frame>
+
+        <ListView ItemsSource="{Binding categorias}"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HasUnevenRows="True"
+                  ItemTapped="ListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <pancake:PancakeView OffsetAngle="90"
+                            Margin="10" >
+                            <pancake:PancakeView.BackgroundGradientStops >
+                                <pancake:GradientStopCollection >
+                                    <pancake:GradientStop Color="White" Offset="0.5" />
+                                    <pancake:GradientStop Color="LightBlue" Offset="1" />
+                                </pancake:GradientStopCollection>
+
+                            </pancake:PancakeView.BackgroundGradientStops>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding imagen}" HeightRequest="100" WidthRequest="120"  HorizontalOptions="Start" VerticalOptions="Center"></Image>
+                                <StackLayout VerticalOptions="Center">
+                                    <Label Text="{Binding nombre }" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" WidthRequest="200" ></Label>
+                                    <Label Text="{Binding cantidad, StringFormat='{0}  Productos'}" HorizontalOptions="Center"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </pancake:PancakeView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
